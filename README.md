@@ -1,3 +1,28 @@
+#git clone https://github.com/maxmnokey950/zkui.git
+ 
+
+2、构建并安装程序
+
+#cd zkui/
+#yum install -y maven
+#mvn clean install
+3、修改配置文件
+
+#cp config.cfg target/
+#cd target/
+#vim config.cfg
+    serverPort=9091     #指定端口
+    zkServer=172.60.0.107:2181,localhost:2181       #第一个server总是leader
+    userSet = {"users": [{ "username":"admin" , "password":"admin","role": "ADMIN" },{ "username":"appconfig" , "password":"appconfig","role": "USER" }]}   #设置登录用户及其权限
+ 
+
+4、启动程序至后台
+
+#nohup java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar &
+
+
+
+
 zkui - Zookeeper UI Dashboard
 ====================
 A UI dashboard that allows CRUD operations on Zookeeper.
